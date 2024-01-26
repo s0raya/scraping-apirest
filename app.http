@@ -1,0 +1,31 @@
+### Obtener todas las noticias
+GET http://localhost:3001/noticias
+
+### Obtener noticias por id
+GET http://localhost:3001/noticias/2
+
+### Añadir noticias
+POST http://localhost:3001/noticias
+Content-Type: application/json
+
+{
+    "titulo": "Bruselas acepta mediar para desbloquear el CGPJ y cita a Bolaños y González Pons el miércoles",
+    "imagen": "https://img2.rtve.es/i/?w=1600&i=01706267912572.jpg",
+    "descripcion": "La Comisión Europea ha aceptado mediar en las negociaciones entre PP y PSOE para desbloquear el Consejo General del Poder Judicial (CGPJ). El comisario de Justicia, Didier Reynders, ha citado ya a una primera reunión el próximo miércoles en Bruselas a los negociadores de ambas partes: el ministro de Presidencia, Justicia y Relaciones con las Cortes, Félix Bolaños, y el eurodiputado 'popular' Esteban González Pons. Además, ha dado un plazo de dos meses para que la negociación llegue a buen término.",
+    "enlace": "https://www.rtve.es/noticias/20240126/bruselas-acepta-mediar-entre-psoe-pp-para-desbloquear-cgpj-cita-a-bolanos-gonzalez-pons-miercoles/15935700.shtml"
+
+}
+
+### Eliminar noticias
+DELETE http://localhost:3001/noticias/78
+
+### Modificar noticias
+PUT http://localhost:3001/noticias/1
+Content-type: application/json
+
+{
+    "titulo": "Hola que tal",
+    "imagen": "esto es una imagen",
+    "descripcion": "esta es la descripcion",
+    "enlace": "este es el enlace"
+}

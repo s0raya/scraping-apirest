@@ -54,17 +54,34 @@ app.post('/noticias', (req, res) => {
 });
 
 app.delete('/noticias/:id', (req, res) => {
-    leerDatos();
     const id = req.params.id;
-    const noticiaIndex = noticias.filter(noticia => noticia.id == id);
-
-    if (noticiaIndex) {
-        const noticiaEliminada = noticias.splice(id + 1, 1);
-        guardarDatos(noticiaEliminada);
+    leerDatos();
+    
+    if (id >= 1 && id <= noticias.length) {
+        const eliminarNoticia = noticias.splice(id - 1, 1);
+        guardarDatos();
+        res.json({mensaje: 'Noticia eliminada', noticia: eliminarNoticia})
     } else {
         res.status(404).json({ mensaje: 'Noticia no encontrada' });
     }
 
+})
+
+app.put('/noticias/:id', (req,res) => {
+    leerDatos();
+    const id = req.params.id;
+    const index = noticias.findIndex(noticia => noticia.id == id);
+    
+    if(index !== -1) {
+        noticias[index] = {
+            id: noticias[index].id,
+            ...req.body
+        }
+        guardarDatos();
+        res.json({mensaje: 'Noticia modificada', noticia: noticias[index]})
+    } else {
+        res.status(404).json({mensaje: "Noticia no encontrada"})
+    }
 })
 
 

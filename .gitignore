@@ -10,6 +10,7 @@ package-lock.json
 *.lock
 *.swp
 *.swo
+noticias.json
 
 # Dependiendo de tu entorno y editor, puedes necesitar agregar más líneas
 # Por ejemplo, para proyectos de Visual Studio Code
